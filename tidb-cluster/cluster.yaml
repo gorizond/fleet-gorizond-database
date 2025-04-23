@@ -1,0 +1,31 @@
+apiVersion: pingcap.com/v1alpha1
+kind: TidbCluster
+metadata:
+  name: gorizond
+  namespace: tidb-cluster
+spec:
+  version: v6.5.0
+  timezone: UTC
+  pvReclaimPolicy: Retain
+  pd:
+    replicas: 1
+    requests:
+      storage: "1Gi"
+    config: |
+      [schedule]
+      high-space-ratio = 0.8
+      low-space-ratio = 0.2
+  tikv:
+    replicas: 1
+    requests:
+      storage: "5Gi"
+    config: |
+      [storage]
+      reserve-space = "2Gi"
+  tidb:
+    replicas: 1
+    service:
+      type: ClusterIP
+    config: |
+      [log]
+      level = "info"

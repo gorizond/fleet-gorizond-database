@@ -1,0 +1,9 @@
+defaultNamespace: tidb-cluster
+
+labels:
+  app: tidb-cluster
+
+dependOn:
+  - selector:
+      matchLabels:
+        app: tidb-operator
