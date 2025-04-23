@@ -34,7 +34,7 @@ spec:
         max-open-files = 256
 
       [storage]
-        reserve-space = "0MB"
+        reserve-space = "200MB"
   tidb:
     baseImage: pingcap/tidb
     maxFailoverCount: 0
