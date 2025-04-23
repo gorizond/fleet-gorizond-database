@@ -12,22 +12,11 @@ spec:
       storage: 1Gi
   tidb:
     baseImage: pingcap/tidb
-    config: |
-      [log]
-        [log.file]
-          max-backups = 3
     replicas: 1
     service:
       type: ClusterIP
   tikv:
     baseImage: pingcap/tikv
-    config: |
-      [raftdb]
-        max-open-files = 256
-      [rocksdb]
-        max-open-files = 256
-      [storage]
-        reserve-space = "100MB"
     replicas: 1
     requests:
       storage: 1Gi
