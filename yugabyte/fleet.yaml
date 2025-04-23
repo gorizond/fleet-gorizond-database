@@ -1,0 +1,60 @@
+defaultNamespace: yugabyte
+
+labels:
+  app: yugabyte
+
+helm:
+  releaseName: yugabyte
+  repo: https://charts.yugabyte.com
+  chart: yugabyte
+  values:
+    replicas:
+      master: 1
+      totalMasters: 1
+      tserver: 1
+    resource:
+      master:
+        limits:
+          cpu: '2'
+          memory: 2Gi
+        requests:
+          cpu: '0.2'
+          memory: 0.5Gi
+      tserver:
+        limits:
+          cpu: '2'
+          memory: 4Gi
+        requests:
+          cpu: '0.2'
+          memory: 0.5Gi
+    storage:
+      ephemeral: false
+      master:
+        count: 1
+        size: 5Gi
+        storageClass: ''
+      tserver:
+        count: 1
+        size: 5Gi
+        storageClass: ''
+    serviceEndpoints:
+      - app: yb-master
+        name: yb-master-ui
+        ports:
+          http-ui: '7000'
+        scope: AZ
+        type: ClusterIP
+      - app: yb-tserver
+        name: yb-tserver-service
+        ports:
+          tcp-yedis-port: '6379'
+          tcp-yql-port: '9042'
+          tcp-ysql-port: '5433'
+        scope: AZ
+        type: ClusterIP
+      - app: yb-master
+        name: yugabyted-ui-service
+        ports:
+          yugabyted-ui: '15433'
+        scope: AZ
+        type: ClusterIP
