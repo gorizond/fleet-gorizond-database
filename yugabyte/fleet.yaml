@@ -40,12 +40,14 @@ helm:
     serviceEndpoints:
       - app: yb-master
         name: yb-master-ui
+        externalTrafficPolicy: Local
         ports:
           http-ui: '7000'
         scope: AZ
         type: ClusterIP
       - app: yb-tserver
         name: yb-tserver-service
+        externalTrafficPolicy: Local
         ports:
           tcp-yedis-port: '6379'
           tcp-yql-port: '9042'
@@ -54,6 +56,7 @@ helm:
         type: ClusterIP
       - app: yb-master
         name: yugabyted-ui-service
+        externalTrafficPolicy: Local
         ports:
           yugabyted-ui: '15433'
         scope: AZ
