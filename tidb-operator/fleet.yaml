@@ -1,0 +1,13 @@
+defaultNamespace: tidb-operator
+
+labels:
+  app: tidb-operator
+
+kustomize:
+  dir: ./kustomize
+
+helm:
+  releaseName: tidb-operator
+  repo: https://charts.pingcap.org/
+  chart: tidb-operator
+  version: v1.6.1
