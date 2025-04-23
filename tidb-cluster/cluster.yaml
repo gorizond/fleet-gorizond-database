@@ -16,6 +16,13 @@ spec:
     baseImage: pingcap/pd
     maxFailoverCount: 0
     replicas: 1
+    resource:
+      limits:
+        cpu: '2'
+        memory: 128Mi
+      requests:
+        cpu: '0.05'
+        memory: 128Mi
     requests:
       storage: "1Gi"
     config: ''
@@ -24,6 +31,13 @@ spec:
     maxFailoverCount: 0
     evictLeaderTimeout: 1m
     replicas: 1
+    resource:
+      limits:
+        cpu: '2'
+        memory: 128Mi
+      requests:
+        cpu: '0.05'
+        memory: 128Mi
     requests:
       storage: "1Gi"
     config: |
@@ -39,6 +53,13 @@ spec:
     baseImage: pingcap/tidb
     maxFailoverCount: 0
     replicas: 1
+    resource:
+      limits:
+        cpu: '2'
+        memory: 128Mi
+      requests:
+        cpu: '0.05'
+        memory: 128Mi
     service:
       type: ClusterIP
     config: |
