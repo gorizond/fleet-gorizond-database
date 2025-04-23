@@ -3,6 +3,9 @@ defaultNamespace: yugabyte
 labels:
   app: yugabyte
 
+kustomize:
+  dir: ./kustomize
+
 helm:
   releaseName: yugabyte
   repo: https://charts.yugabyte.com
@@ -41,14 +44,12 @@ helm:
     serviceEndpoints:
       - app: yb-master
         name: yb-master-ui
-        externalTrafficPolicy: ''
         ports:
           http-ui: '7000'
         scope: AZ
         type: ClusterIP
       - app: yb-tserver
         name: yb-tserver-service
-        externalTrafficPolicy: ''
         ports:
           tcp-yedis-port: '6379'
           tcp-yql-port: '9042'
@@ -57,7 +58,6 @@ helm:
         type: ClusterIP
       - app: yb-master
         name: yugabyted-ui-service
-        externalTrafficPolicy: ''
         ports:
           yugabyted-ui: '15433'
         scope: AZ
