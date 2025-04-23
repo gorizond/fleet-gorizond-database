@@ -1,25 +1,10 @@
-patchesJson6902:
-  - target:
-      group: ""
-      version: v1
+patches:
+  - patch: |-
+      apiVersion: v1
       kind: Service
-      name: yb-master-ui
-    patch: |-
-      - op: remove
-        path: /spec/externalTrafficPolicy
-  - target:
-      group: ""
-      version: v1
+      metadata:
+        name: dummy
+      spec:
+        externalTrafficPolicy: null
+    target:
       kind: Service
-      name: yb-tserver-service
-    patch: |-
-      - op: remove
-        path: /spec/externalTrafficPolicy
-  - target:
-      group: ""
-      version: v1
-      kind: Service
-      name: yugabyted-ui-service
-    patch: |-
-      - op: remove
-        path: /spec/externalTrafficPolicy
