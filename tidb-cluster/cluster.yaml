@@ -4,35 +4,19 @@ metadata:
   name: gorizond
   namespace: tidb-cluster
 spec:
-  configUpdateStrategy: RollingUpdate
-  discovery: {}
-  enableDynamicConfiguration: true
-  enablePVReclaim: false
-  helper:
-    image: alpine:3.16.0
   imagePullPolicy: IfNotPresent
   pd:
     baseImage: pingcap/pd
-    initWaitTime: 0
-    maxFailoverCount: 0
-    mode: ms
     replicas: 1
     requests:
       storage: 1Gi
-    spareVolReplaceReplicas: 1
-    startTimeout: 30
-  pvReclaimPolicy: Retain
   tidb:
     baseImage: pingcap/tidb
     config: |
       [log]
         [log.file]
           max-backups = 3
-    maxFailoverCount: 0
     replicas: 1
-    scalePolicy:
-      scaleInParallelism: 1
-      scaleOutParallelism: 1
     service:
       type: ClusterIP
   tikv:
@@ -44,13 +28,7 @@ spec:
         max-open-files = 256
       [storage]
         reserve-space = "100MB"
-    evictLeaderTimeout: 1m
-    maxFailoverCount: 0
     replicas: 1
     requests:
       storage: 1Gi
-    scalePolicy:
-      scaleInParallelism: 1
-      scaleOutParallelism: 1
-    spareVolReplaceReplicas: 1
   timezone: UTC
