@@ -46,7 +46,9 @@ spec:
 
       [rocksdb]
         max-open-files = 256
-
+        max-total-wal-size = "200MB"
+        max-sub-compactions = 3
+        
       [storage]
         reserve-space = "200MB"
   tidb:
