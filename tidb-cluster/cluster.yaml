@@ -46,9 +46,21 @@ spec:
         max-open-files = 256
         max-total-wal-size = "200MB"
         max-sub-compactions = 3
-        
+
+      [rocksdb.defaultcf]
+        write-buffer-size = "16MB"
+
+      [rocksdb.writecf]
+        write-buffer-size = "16MB"
+
       [storage]
         reserve-space = "200MB"
+
+      [storage.block-cache]
+        capacity = "64MB"
+
+      [server]
+        grpc-memory-pool-quota = "256MB"
   tidb:
     baseImage: pingcap/tidb
     maxFailoverCount: 0
