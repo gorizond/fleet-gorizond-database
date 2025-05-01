@@ -15,7 +15,7 @@ helm:
     replicas:
       master: 1
       totalMasters: 1
-      tserver: 1
+      tserver: 3
     resource:
       master:
         limits:
