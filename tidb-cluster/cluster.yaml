@@ -63,8 +63,8 @@ spec:
         grpc-memory-pool-quota = "256MB"
   tidb:
     baseImage: pingcap/tidb
-    maxFailoverCount: 0
-    replicas: 1
+    maxFailoverCount: 1
+    replicas: 2
     limits:
       cpu: '2'
       memory: 1.5Gi
