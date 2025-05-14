@@ -27,7 +27,7 @@ spec:
   tikv:
     baseImage: pingcap/tikv
     maxFailoverCount: 0
-    evictLeaderTimeout: 20s
+    evictLeaderTimeout: 1m
     replicas: 2
     limits:
       cpu: '2'
