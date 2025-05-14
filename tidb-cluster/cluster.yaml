@@ -28,7 +28,7 @@ spec:
     baseImage: pingcap/tikv
     maxFailoverCount: 0
     evictLeaderTimeout: 1m
-    replicas: 2
+    replicas: 3
     limits:
       cpu: '2'
       memory: 2Gi
