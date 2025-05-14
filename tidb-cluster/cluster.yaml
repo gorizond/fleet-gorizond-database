@@ -22,7 +22,6 @@ spec:
     requests:
       cpu: '0.05'
       memory: 256Mi
-    requests:
       storage: "1Gi"
     config: ''
   tikv:
@@ -36,7 +35,6 @@ spec:
     requests:
       cpu: '0.05'
       memory: 1Gi
-    requests:
       storage: "10Gi"
     config: |
       [raftdb]
