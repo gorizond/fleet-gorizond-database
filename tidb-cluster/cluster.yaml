@@ -39,7 +39,10 @@ spec:
     config: |
       [raftdb]
         max-open-files = 256
-
+      [raft-engine]
+      purge-threshold = "1GB"
+      purge-interval = "10m"
+      
       [rocksdb]
         max-open-files = 256
         max-total-wal-size = "200MB"
