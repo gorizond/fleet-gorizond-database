@@ -1,0 +1,10 @@
+defaultNamespace: default
+
+helm:
+  releaseName: cleanup-postgres
+  repo: https://gorizond.github.io/fleet-gorizond-charts/
+  chart: cleanup
+  version: 0.1.1
+  values:
+    type: postgres
+    dsn: ${ get .ClusterAnnotations "gorizond.db.headscale" }
