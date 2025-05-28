@@ -4,7 +4,7 @@ helm:
   releaseName: cleanup-mysql
   repo: https://gorizond.github.io/fleet-gorizond-charts/
   chart: cleanup
-  version: 0.1.1
+  version: 0.1.3
   values:
     type: mysql
     dsn: ${ get .ClusterAnnotations "gorizond.db.k3s" }
