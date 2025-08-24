@@ -4,7 +4,7 @@ helm:
   releaseName: cleanup-postgres
   repo: https://gorizond.github.io/fleet-gorizond-charts/
   chart: cleanup
-  version: 0.1.5
+  version: 0.1.6
   values:
     type: postgres
     dsn: ${ get .ClusterAnnotations "gorizond.db.headscale" }
