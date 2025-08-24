@@ -18,11 +18,11 @@ spec:
     replicas: 1
     limits:
       cpu: '2'
-      memory: "256Mi"
+      memory: 256Mi
     requests:
-      cpu: '0.05'
-      memory: "256Mi"
-      storage: "1Gi"
+      cpu: 50m
+      memory: 256Mi
+      storage: 1Gi
     config: ''
   tikv:
     baseImage: pingcap/tikv
@@ -31,11 +31,11 @@ spec:
     replicas: 3
     limits:
       cpu: '2'
-      memory: "2.5Gi"
+      memory: 2560Mi
     requests:
-      cpu: '0.05'
-      memory: "2.5Gi"
-      storage: "10Gi"
+      cpu: 50m
+      memory: 2560Mi
+      storage: 10Gi
     config: |
       [raft-engine]
         purge-interval = "10m"
@@ -66,10 +66,10 @@ spec:
     replicas: 1
     limits:
       cpu: '2'
-      memory: "1.5Gi"
+      memory: 1536Mi
     requests:
-      cpu: '0.05'
-      memory: "1.5Gi"
+      cpu: 50m
+      memory: 1536Mi
     service:
       type: ClusterIP
     config: |
